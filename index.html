@@ -19,35 +19,36 @@
   /* HERO IMAGE */
   .hero { position:relative; text-align:center; overflow:hidden; }
   .hero img { width:100%; max-height:500px; object-fit:cover; animation:fadeIn 2s ease-in; }
-
-  /* HEADER CTA */
   header { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; }
   header h1 { font-size:3rem; margin-bottom:20px; text-shadow:0 4px 10px rgba(0,0,0,0.5); animation:fadeInDown 1s ease-in; }
   header .cta-button { background:#ff7f50; color:white; padding:15px 35px; font-size:1.2rem; border:none; border-radius:50px; cursor:pointer; text-decoration:none; display:inline-block; transition:all 0.3s ease; animation:fadeInUp 2s ease-in; }
   header .cta-button:hover { background:#ff6347; transform:scale(1.05); }
 
-  /* AVANTAGES / SERVICES */
+  /* BENEFITS / AVANTAGES */
   .benefits { max-width:1000px; margin:100px auto; padding:0 20px; text-align:center; }
-  .benefits h2.section-title { font-size:2.5rem; color:#4facfe; margin-bottom:40px; }
-  .benefits ul { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-  .benefits li { background:white; padding:25px 20px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); display:flex; align-items:center; gap:15px; opacity:0; transform:translateY(30px); transition:0.8s ease; }
-  .benefits li img { width:60px; flex-shrink:0; }
+  .section-title { font-size:2.5rem; color:#4facfe; margin-bottom:40px; }
+  .benefits-container { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; }
+  .benefit-item { display:flex; align-items:flex-start; background:white; padding:20px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; opacity:0; transform:translateY(30px); }
+  .benefit-item:hover { transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+  .benefit-item img { width:60px; height:60px; margin-right:20px; flex-shrink:0; }
+  .benefit-text h3 { margin-bottom:8px; color:#4facfe; font-size:1.2rem; }
+  .benefit-text p { color:#555; font-size:1rem; line-height:1.4; }
 
-  /* SLIDER TÉMOIGNAGES */
+  /* TESTIMONIAL SLIDER */
   .testimonial-slider { display:flex; overflow:hidden; position:relative; max-width:1000px; margin:50px auto; }
-  .testimonial-slide { min-width:100%; transition:0.5s; padding:20px; display:flex; justify-content:center; }
+  .testimonial-slide { min-width:100%; transition:0.5s; display:flex; justify-content:center; }
   .testimonial { flex:0 0 300px; background:white; border-radius:15px; padding:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); text-align:center; opacity:0; transform:translateY(30px); transition:0.8s ease; }
   .testimonial p { font-style:italic; margin-bottom:10px; }
   .testimonial h4 { color:#4facfe; text-align:right; }
 
-  /* FORMULAIRE */
+  /* CONTACT FORM */
   .contact-form { max-width:600px; margin:50px auto; background:white; padding:40px 30px; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
   .contact-form input, .contact-form textarea { width:100%; padding:15px; margin-bottom:20px; border-radius:10px; border:1px solid #ccc; font-size:1rem; transition:all 0.3s; }
   .contact-form input:focus, .contact-form textarea:focus { border-color:#4facfe; outline:none; }
   .contact-form button { background:#4facfe; color:white; border:none; padding:15px 30px; border-radius:50px; font-size:1.1rem; cursor:pointer; transition:all 0.3s ease; }
   .contact-form button:hover { background:#00f2fe; }
 
-  /* FAQ ACCORDÉON */
+  /* FAQ */
   .faq-item { background:white; border-radius:10px; margin:15px auto; max-width:800px; padding:20px; box-shadow:0 5px 15px rgba(0,0,0,0.1); cursor:pointer; transition:0.3s; }
   .faq-item:hover { transform:translateY(-5px); }
   .faq-answer { display:none; padding-top:10px; color:#666; }
@@ -61,7 +62,7 @@
   @keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
   @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
-  @media(max-width:768px){ header h1 { font-size:2.2rem; } .benefits ul { grid-template-columns:1fr; } }
+  @media(max-width:768px){ header h1 { font-size:2.2rem; } .benefits-container { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -87,12 +88,36 @@
 <!-- AVANTAGES -->
 <section class="benefits" id="benefits">
   <h2 class="section-title">Ce que vous allez obtenir :</h2>
-  <ul>
-    <li><img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/productivity-icon.png" alt="productivité" /> Atteignez vos objectifs personnels ou professionnels</li>
-    <li><img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/personalized-icon.png" alt="suivi personnalisé" /> Méthode adaptée à votre rythme et vos besoins</li>
-    <li><img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/support-icon.png" alt="support" /> Suivi et support quotidien pour rester motivé</li>
-    <li><img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/results-icon.png" alt="résultats" /> Résultats visibles dès les premières semaines</li>
-  </ul>
+  <div class="benefits-container">
+    <div class="benefit-item">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/productivity-icon.png" alt="productivité" />
+      <div class="benefit-text">
+        <h3>Productivité</h3>
+        <p>Atteignez vos objectifs personnels ou professionnels.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/personalized-icon.png" alt="suivi personnalisé" />
+      <div class="benefit-text">
+        <h3>Suivi personnalisé</h3>
+        <p>Méthode adaptée à votre rythme et vos besoins.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/support-icon.png" alt="support" />
+      <div class="benefit-text">
+        <h3>Support</h3>
+        <p>Suivi et support quotidien pour rester motivé.</p>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/results-icon.png" alt="résultats" />
+      <div class="benefit-text">
+        <h3>Résultats</h3>
+        <p>Résultats visibles dès les premières semaines.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SLIDER TÉMOIGNAGES -->
@@ -134,7 +159,7 @@
 
 <script>
   // Animation des avantages et témoignages
-  const items = document.querySelectorAll('.benefits li, .testimonial');
+  const items = document.querySelectorAll('.benefit-item, .testimonial');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -163,8 +188,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
