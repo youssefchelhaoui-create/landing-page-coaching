@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaching Personnalisé – Transformez votre vie</title>
+  <style>
+    /* Reset basique */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+    a { text-decoration: none; }
+
+    /* HEADER HERO */
+    header {
+      position: relative;
+      height: 100vh;
+      background: url('image-coaching.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      top:0; left:0; width:100%; height:100%;
+      background-color: rgba(0,0,0,0.5);
+    }
+    header .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #FF4500;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #ff5722;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* CONTAINER */
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+    /* SECTIONS */
+    section { margin-bottom: 60px; }
+
+    /* TITRES DE SECTION */
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #1E90FF;
+    }
+
+    /* AVANTAGES / CARDS */
+    .benefits-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .benefit-card {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      flex: 1 1 250px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .benefit-card:hover { transform: translateY(-5px); }
+    .benefit-card img { width: 80px; margin-bottom: 15px; }
+
+    /* TÉMOIGNAGES */
+    .testimonials-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .testimonial-card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      flex: 1 1 300px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    .testimonial-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .testimonial-card p { font-size: 1em; }
+
+    /* OFFRE / PRIX */
+    .pricing-box {
+      background-color: #FF4500;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .pricing-box h2 { font-size: 2em; margin-bottom: 20px; }
+    .pricing-box p { font-size: 1.3em; margin-bottom: 30px; }
+
+    /* GARANTIE / FAQ */
+    .guarantee ul, .faq ul { list-style: none; }
+    .guarantee li::before, .faq li::before {
+      content: "✔";
+      color: #FF4500;
+      margin-right: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #1E90FF;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      header h1 { font-size: 2.2em; }
+      .benefits-cards, .testimonials-cards { flex-direction: column; align-items: center; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER HERO -->
+  <header>
+    <div class="hero-content">
+      <h1>Transformez votre vie en 30 jours avec notre coaching personnalisé !</h1>
+      <p>Apprenez à atteindre vos objectifs rapidement grâce à notre méthode éprouvée.</p>
+      <a href="https://forms.gle/tonformulaire" target="_blank" class="cta-button">Je veux mon coaching maintenant !</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- AVANTAGES -->
+    <section class="benefits">
+      <h2 class="section-title">Ce que vous allez obtenir :</h2>
+      <div class="benefits-cards">
+        <div class="benefit-card">
+          <img src="productivity-icon.png" alt="Productivité" />
+          <h3>Productivité</h3>
+          <p>Atteignez vos objectifs personnels ou professionnels rapidement.</p>
+        </div>
+        <div class="benefit-card">
+          <img src="personalized-icon.png" alt="Suivi personnalisé" />
+          <h3>Suivi personnalisé</h3>
+          <p>Méthode adaptée à votre rythme et vos besoins uniques.</p>
+        </div>
+        <div class="benefit-card">
+          <img src="support-icon.png" alt="Support" />
+          <h3>Support quotidien</h3>
+          <p>Un accompagnement et suivi pour rester motivé à chaque étape.</p>
+        </div>
+        <div class="benefit-card">
+          <img src="results-icon.png" alt="Résultats" />
+          <h3>Résultats visibles</h3>
+          <p>Des résultats concrets dès les premières semaines de coaching.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÉMOIGNAGES -->
+    <section class="testimonials">
+      <h2 class="section-title">Témoignages de nos clients :</h2>
+      <div class="testimonials-cards">
+        <div class="testimonial-card">
+          <img src="testimonial1.png" alt="Samir" />
+          <p>« Grâce à ce coaching, j’ai doublé ma productivité ! » – Samir, Casablanca</p>
+        </div>
+        <div class="testimonial-card">
+          <img src="testimonial2.jpg" alt="Leila" />
+          <p>« Excellent suivi et conseils concrets ! » – Leila, Rabat</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFRE / PRIX -->
+    <section class="pricing">
+      <div class="pricing-box">
+        <h2>Offre spéciale</h2>
+        <p>Prix standard : 200 € / mois</p>
+        <p>Offre limitée : 150 € si vous vous inscrivez avant le 20 janvier</p>
+        <a href="https://forms.gle/tonformulaire" target="_blank" class="cta-button">Je veux mon coaching maintenant !</a>
+      </div>
+    </section>
+
+    <!-- GARANTIE -->
+    <section class="guarantee">
+      <h2 class="section-title">Garantie et sécurité</h2>
+      <ul>
+        <li>7 jours satisfait ou remboursé</li>
+        <li>Paiement 100 % sécurisé</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h2 class="section-title">Questions fréquentes</h2>
+      <ul>
+        <li><strong>Comment se déroule le coaching ?</strong> Sessions en ligne 2x/semaine + suivi via email et chat.</li>
+        <li><strong>Puis-je arrêter à tout moment ?</strong> Oui, vous êtes libre de résilier votre abonnement à tout moment.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Coaching Excellence. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>
