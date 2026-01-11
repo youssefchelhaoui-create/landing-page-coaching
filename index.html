@@ -7,22 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; scroll-behavior: smooth; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; scroll-behavior: smooth; transition: all 0.3s ease-in-out; }
   body { line-height:1.6; color:#333; background:#f7f9fc; }
 
+  /* MENU FIXE */
   nav { position:fixed; top:0; left:0; width:100%; background:white; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:1000; }
-  nav ul { display:flex; justify-content:center; list-style:none; padding:15px 0; }
+  nav ul { display:flex; justify-content:center; list-style:none; padding:15px 0; margin:0; }
   nav ul li { margin:0 20px; }
   nav ul li a { text-decoration:none; color:#333; font-weight:600; transition:0.3s; }
   nav ul li a:hover { color:#4facfe; }
 
-  /* HERO IMAGE */
-  .hero { position:relative; text-align:center; overflow:hidden; }
-  .hero img { width:100%; max-height:500px; object-fit:cover; animation:fadeIn 2s ease-in; }
-  header { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; }
-  header h1 { font-size:3rem; margin-bottom:20px; text-shadow:0 4px 10px rgba(0,0,0,0.5); animation:fadeInDown 1s ease-in; }
-  header p { font-size:1.3rem; margin-bottom:30px; animation:fadeIn 2s ease-in; }
-  .cta-button { background:#ff7f50; color:white; padding:15px 35px; font-size:1.2rem; border:none; border-radius:50px; cursor:pointer; text-decoration:none; display:inline-block; transition:all 0.3s ease; animation:fadeInUp 2s ease-in; }
+  /* HERO PARALLAX */
+  .hero { position:relative; text-align:center; overflow:hidden; height:500px; }
+  .hero img { width:100%; height:100%; object-fit:cover; transform:translateZ(0); will-change:transform; transition:transform 0.5s ease-out; }
+  header { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; z-index:2; }
+  header h1 { font-size:3rem; margin-bottom:20px; text-shadow:0 4px 10px rgba(0,0,0,0.5); }
+  header p { font-size:1.3rem; margin-bottom:30px; }
+  .cta-button { background:#ff7f50; color:white; padding:15px 35px; font-size:1.2rem; border:none; border-radius:50px; cursor:pointer; text-decoration:none; display:inline-block; transition:all 0.3s ease; }
   .cta-button:hover { background:#ff6347; transform:scale(1.05); }
 
   /* SECTIONS */
@@ -32,7 +33,8 @@
   /* SERVICES */
   .services { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; }
   .service-card { flex:1 1 250px; background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); padding:30px 20px; text-align:center; transition:transform 0.3s ease, box-shadow 0.3s ease, opacity 1s ease; opacity:0; }
-  .service-card img { width:80px; margin-bottom:20px; }
+  .service-card img { width:80px; margin-bottom:20px; transition: transform 0.3s ease, filter 0.3s ease; cursor:pointer; }
+  .service-card img:hover { transform:scale(1.1) rotate(-5deg); filter:brightness(1.2); }
   .service-card h3 { margin-bottom:15px; color:#333; }
   .service-card p { color:#666; }
   .service-card:hover { transform:translateY(-10px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
@@ -60,119 +62,143 @@
   .cta-section { background:#f4f9ff; text-align:center; padding:80px 20px; border-radius:15px; }
   .cta-section h2 { margin-bottom:30px; }
 
+  /* ANIMATIONS */
   @keyframes fadeInDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
   @keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
   @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
-  @media(max-width:768px){ header h1 { font-size:2.2rem; } header p { font-size:1rem; } .services { flex-direction:column; align-items:center; } }
+  @media(max-width:768px){
+    header h1 { font-size:2.2rem; }
+    header p { font-size:1rem; }
+    .services { flex-direction:column; align-items:center; }
+  }
 </style>
 </head>
+
 <body>
 
-  <!-- HERO IMAGE -->
-  <section class="hero">
-    <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/image-coaching.jpg" alt="Coaching en ligne" />
-    <header>
-      <h1>Boostez votre Productivité avec Mon Coaching</h1>
-      <p>Des méthodes personnalisées pour atteindre vos objectifs rapidement et efficacement.</p>
-      <a href="#cta" class="cta-button">Je veux mon coaching maintenant !</a>
-    </header>
-  </section>
+<!-- MENU -->
+<nav>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Témoignages</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#cta">Réserver</a></li>
+  </ul>
+</nav>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Ce que vous allez obtenir</h2>
-    <div class="services">
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/productivity-icon.png" alt="Productivité">
-        <h3>Productivité</h3>
-        <p>Améliorez votre organisation et votre efficacité grâce à des stratégies adaptées.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/personalized-icon.png" alt="Suivi personnalisé">
-        <h3>Suivi personnalisé</h3>
-        <p>Un accompagnement sur mesure pour atteindre vos objectifs rapidement.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/support-icon.png" alt="Support">
-        <h3>Support continu</h3>
-        <p>Je reste disponible pour répondre à toutes vos questions et vous guider.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/results-icon.png" alt="Résultats">
-        <h3>Résultats concrets</h3>
-        <p>Mes méthodes sont orientées vers des résultats mesurables et durables.</p>
-      </div>
+<!-- HERO PARALLAX -->
+<section class="hero">
+  <img id="hero-img" src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/image-coaching.jpg" alt="Coaching en ligne" />
+  <header>
+    <h1>Boostez votre Productivité avec Mon Coaching</h1>
+    <p>Des méthodes personnalisées pour atteindre vos objectifs rapidement et efficacement.</p>
+    <a href="#cta" class="cta-button">Je veux mon coaching maintenant !</a>
+  </header>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Ce que vous allez obtenir</h2>
+  <div class="services">
+    <div class="service-card">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/productivity-icon.png" alt="Productivité">
+      <h3>Productivité</h3>
+      <p>Améliorez votre organisation et votre efficacité grâce à des stratégies adaptées.</p>
     </div>
-  </section>
-
-  <!-- TÉMOIGNAGES -->
-  <section id="testimonials">
-    <h2>Témoignages de mes clients</h2>
-    <div class="testimonial-slider" id="slider">
-      <div class="testimonial-slide"><div class="testimonial"><p>"Grâce au coaching de Youssef, j'ai doublé ma productivité en 1 mois!"</p><h4>- Amine</h4></div></div>
-      <div class="testimonial-slide"><div class="testimonial"><p>"Un accompagnement sur mesure qui m'a aidé à atteindre mes objectifs rapidement."</p><h4>- Salma</h4></div></div>
-      <div class="testimonial-slide"><div class="testimonial"><p>"Je recommande vivement ce coaching, très efficace et motivant."</p><h4>- Karim</h4></div></div>
+    <div class="service-card">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/personalized-icon.png" alt="Suivi personnalisé">
+      <h3>Suivi personnalisé</h3>
+      <p>Un accompagnement sur mesure pour atteindre vos objectifs rapidement.</p>
     </div>
-  </section>
-
-  <!-- FORMULAIRE -->
-  <section id="contact">
-    <h2>Contactez-moi</h2>
-    <div class="contact-form">
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre email" required>
-      <textarea rows="5" placeholder="Votre message"></textarea>
-      <button>Envoyer</button>
+    <div class="service-card">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/support-icon.png" alt="Support">
+      <h3>Support continu</h3>
+      <p>Je reste disponible pour répondre à toutes vos questions et vous guider.</p>
     </div>
-  </section>
+    <div class="service-card">
+      <img src="https://raw.githubusercontent.com/youssefchelhaoui-create/landing-page-coaching/main/results-icon.png" alt="Résultats">
+      <h3>Résultats concrets</h3>
+      <p>Mes méthodes sont orientées vers des résultats mesurables et durables.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- FAQ -->
-  <section>
-    <h2>Questions fréquentes</h2>
-    <div class="faq-item">Comment se déroule le coaching ?<div class="faq-answer">Le coaching est personnalisé et se déroule en ligne ou en présentiel selon vos disponibilités.</div></div>
-    <div class="faq-item">Quels résultats puis-je attendre ?<div class="faq-answer">Vous verrez des progrès concrets sur votre productivité, motivation et organisation dès les premières semaines.</div></div>
-    <div class="faq-item">Puis-je annuler une séance ?<div class="faq-answer">Oui, vous pouvez reprogrammer ou annuler avec un préavis de 24h.</div></div>
-  </section>
+<!-- TÉMOIGNAGES -->
+<section id="testimonials">
+  <h2>Témoignages de mes clients</h2>
+  <div class="testimonial-slider" id="slider">
+    <div class="testimonial-slide"><div class="testimonial"><p>"Grâce au coaching de Youssef, j'ai doublé ma productivité en 1 mois!"</p><h4>- Amine</h4></div></div>
+    <div class="testimonial-slide"><div class="testimonial"><p>"Un accompagnement sur mesure qui m'a aidé à atteindre mes objectifs rapidement."</p><h4>- Salma</h4></div></div>
+    <div class="testimonial-slide"><div class="testimonial"><p>"Je recommande vivement ce coaching, très efficace et motivant."</p><h4>- Karim</h4></div></div>
+  </div>
+</section>
 
-  <!-- CTA FINAL -->
-  <section id="cta" class="cta-section">
-    <h2>Prêt à transformer votre vie ?</h2>
-    <a href="#" class="cta-button">Réservez votre coaching maintenant !</a>
-  </section>
+<!-- FORMULAIRE -->
+<section id="contact">
+  <h2>Contactez-moi</h2>
+  <div class="contact-form">
+    <input type="text" placeholder="Votre nom" required>
+    <input type="email" placeholder="Votre email" required>
+    <textarea rows="5" placeholder="Votre message"></textarea>
+    <button>Envoyer</button>
+  </div>
+</section>
 
-  <footer style="text-align:center; padding:20px; background:#333; color:white;">© 2026 Coaching Youssef</footer>
+<!-- FAQ -->
+<section>
+  <h2>Questions fréquentes</h2>
+  <div class="faq-item">Comment se déroule le coaching ?<div class="faq-answer">Le coaching est personnalisé et se déroule en ligne ou en présentiel selon vos disponibilités.</div></div>
+  <div class="faq-item">Quels résultats puis-je attendre ?<div class="faq-answer">Vous verrez des progrès concrets sur votre productivité, motivation et organisation dès les premières semaines.</div></div>
+  <div class="faq-item">Puis-je annuler une séance ?<div class="faq-answer">Oui, vous pouvez reprogrammer ou annuler avec un préavis de 24h.</div></div>
+</section>
 
-  <script>
-    // Animation scroll
-    const cards = document.querySelectorAll('.service-card, .testimonial');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.2 });
-    cards.forEach(card => observer.observe(card));
+<!-- CTA -->
+<section id="cta" class="cta-section">
+  <h2>Prêt à transformer votre vie ?</h2>
+  <a href="#" class="cta-button">Réservez votre coaching maintenant !</a>
+</section>
 
-    // Témoignages slider automatique
-    const slider = document.getElementById('slider');
-    let index = 0;
-    setInterval(() => {
-      index++;
-      if(index >= slider.children.length) index = 0;
-      slider.style.transform = `translateX(-${index * 100}%)`;
-    }, 4000);
+<footer style="text-align:center; padding:20px; background:#333; color:white;">© 2026 Coaching Youssef</footer>
 
-    // FAQ accordéon
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => item.addEventListener('click', () => {
-      const answer = item.querySelector('.faq-answer');
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    }));
-  </script>
+<script>
+  // Parallax hero
+  const heroImg = document.getElementById('hero-img');
+  window.addEventListener('scroll', () => {
+    heroImg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+  });
+
+  // Animations scroll
+  const cards = document.querySelectorAll('.service-card, .testimonial');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
+
+  // Témoignages slider automatique
+  const slider = document.getElementById('slider');
+  let index = 0;
+  setInterval(() => {
+    index++;
+    if(index >= slider.children.length) index = 0;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 4000);
+
+  // FAQ accordéon
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => item.addEventListener('click', () => {
+    const answer = item.querySelector('.faq-answer');
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+  }));
+</script>
 
 </body>
 </html>
+
+
 
